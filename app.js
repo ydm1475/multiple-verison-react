@@ -8,14 +8,16 @@ function App() {
   const [newCount, setNewCount] = useState(0);
   return (
     <>
-      <NewCounter
-        count={newCount}
-        propsOnClick={() => {
-          setNewCount(newCount + 1);
-        }}
-      >
-        {bol && <OldCounter ref={oldRef} />}
-      </NewCounter>
+      {bol && (
+        <NewCounter
+          count={newCount}
+          propsOnClick={() => {
+            setNewCount(newCount + 1);
+          }}
+        >
+          {<OldCounter ref={oldRef} />}
+        </NewCounter>
+      )}
 
       <button
         style={{ marginLeft: "30px" }}
@@ -23,7 +25,7 @@ function App() {
           setBol(!bol);
         }}
       >
-        {bol ? "隐藏react16计数器" : "展示rect16计数器"}
+        {bol ? "隐藏计数器" : "展示计数器"}
       </button>
       <button
         style={{ marginLeft: "30px" }}

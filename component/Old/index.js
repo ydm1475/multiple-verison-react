@@ -1,4 +1,9 @@
-import React, { useState, forwardRef, useImperativeHandle } from "react-16";
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from "react-16";
 
 import withRender from "./withRender";
 import "./index.css";
@@ -8,6 +13,15 @@ const Counter = forwardRef((_, ref) => {
   useImperativeHandle(ref, () => ({
     count,
   }));
+
+  useEffect(() => {
+    var timer = setInterval(() => {
+      console.log(1111);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <div ref={ref}>
@@ -25,5 +39,4 @@ const Counter = forwardRef((_, ref) => {
     </div>
   );
 });
-
 export default withRender(Counter);
