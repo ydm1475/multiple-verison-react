@@ -5,7 +5,7 @@ import React, {
   useEffect,
 } from "react-16";
 
-import withRender from "./withRender";
+import withRender from "./withRender1";
 import "./index.css";
 
 const Counter = forwardRef((_, ref) => {

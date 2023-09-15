@@ -19,10 +19,6 @@ export default function withRender(Component) {
         if (containerRef.current) {
           ReactDOM.render(<Component ref={ref} />, containerRef.current);
         }
-
-        return () => {
-          ref.current = undefined;
-        };
       }, []);
 
       return <div ref={containerRef} id="react16"></div>;
