@@ -28,7 +28,11 @@ function App() {
       <button
         style={{ marginLeft: "30px" }}
         onClick={() => {
-          alert(`当前计数器的和为${oldRef.current.count + newCount}`);
+          console.log(
+            `当前计数器的和为${
+              (oldRef.current ? oldRef.current.count : 0) + newCount
+            }`
+          );
         }}
       >
         计算和

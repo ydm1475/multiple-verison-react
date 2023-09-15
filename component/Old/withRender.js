@@ -5,11 +5,14 @@ export default function withRender(Component) {
   return memo(
     forwardRef((_, ref) => {
       var containerRef = useRef();
-      console.log("0000");
       useEffect(() => {
         if (containerRef.current) {
           ReactDOM.render(<Component ref={ref} />, containerRef.current);
         }
+
+        return () => {
+          ref.current = undefined;
+        };
       }, []);
 
       return <div ref={containerRef} id="react16"></div>;
