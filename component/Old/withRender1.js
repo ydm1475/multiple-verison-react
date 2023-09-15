@@ -9,6 +9,7 @@ export default function withRender(Component) {
 
       function load() {
         memoRef.current = containerRef.current;
+
         ReactDOM.render(<Component ref={ref} />, containerRef.current);
       }
 
@@ -17,6 +18,7 @@ export default function withRender(Component) {
 
         return () => {
           unmountComponentAtNode(memoRef.current);
+          memoRef.current = undefined;
         };
       }, []);
 
