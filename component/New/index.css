@@ -1,0 +1,15 @@
+.subItem {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px dashed gray;
+}
+
+.wrap {
+  margin: 30px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.wrap button {
+  margin-left: 10px;
+}
