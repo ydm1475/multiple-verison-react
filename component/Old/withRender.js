@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom-16";
+import ReactDOM, { unmountComponentAtNode } from "react-dom-16";
 import { useRef, useEffect, forwardRef, memo } from "react";
 
 export default function withRender(Component) {
@@ -11,6 +11,9 @@ export default function withRender(Component) {
         }
 
         return () => {
+          if (containerRef.current) {
+            unmountComponentAtNode(containerRef.current);
+          }
           ref.current = undefined;
         };
       }, []);
